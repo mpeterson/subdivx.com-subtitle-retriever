@@ -137,6 +137,3 @@ if __name__ == '__main__':
     out_file_name = '/%s %s %s' % (args.series_name, args.series_id, args.series_quality)
     
     get_subtitle_archive(url, os.path.abspath(args.path) + out_file_name)
-
-
- 
