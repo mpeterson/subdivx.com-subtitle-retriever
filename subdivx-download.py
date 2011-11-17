@@ -85,7 +85,7 @@ def get_subtitle_url(series_name, series_id, series_quality):
     
     return results_descriptions[best_match_index].nextSibling.find(**SUBDIVX_DOWNLOAD_MATCHER)['href']
     
-def get_subtitle_archive(url, path):
+def get_subtitle(url, path):
     in_data = urllib2.urlopen(url)
     temp_file = NamedTemporaryFile()
     
@@ -120,7 +120,7 @@ if __name__ == '__main__':
     parser.add_argument('--quiet', '-q', action='store_true')
 
     args = parser.parse_args()
-    
+
     setup_logger(LOGGER_LEVEL)
     
     if not args.quiet:
@@ -136,4 +136,4 @@ if __name__ == '__main__':
     
     out_file_name = '/%s %s %s' % (args.series_name, args.series_id, args.series_quality)
     
-    get_subtitle_archive(url, os.path.abspath(args.path) + out_file_name)
+    get_subtitle(url, os.path.abspath(args.path) + out_file_name)
