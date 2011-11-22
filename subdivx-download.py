@@ -46,7 +46,7 @@ def get_subtitle_url(series_name, series_id, series_quality):
     logger.debug('Starting request to subdivx.com')
     page = urllib2.urlopen(SUBDIVX_SEARCH_URL % (enc_series_name, enc_series_id))
     logger.debug('Search Query URL: ' + page.geturl())
-    page = urllib2.urlopen("http://www.subdivx.com/index.php?buscar=asdad&accion=5&masdesc=&subtitulos=1&realiza_b=1&oxdown=1")
+
     soup = BeautifulSoup(page)
 
     results_descriptions = soup('div', id='buscador_detalle_sub')
