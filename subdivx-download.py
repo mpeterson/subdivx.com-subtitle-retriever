@@ -100,7 +100,7 @@ def get_subtitle(url, path):
         zip_file = ZipFile(temp_file)
         for name in zip_file.namelist():
             # don't unzip stub __MACOSX folders
-            if name.find('.srt') and name.find('__MACOSX') == -1:
+            if '.srt' in name and '__MACOSX' not in name:
                 zip_file.extract(name, os.path.dirname(path))
 
         zip_file.close()
