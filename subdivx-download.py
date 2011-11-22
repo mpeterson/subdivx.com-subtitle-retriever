@@ -95,17 +95,16 @@ def get_subtitle(url, path):
     temp_file.seek(0)
     
     if is_zipfile(temp_file.name):
-        logger.debug('Unpacking zipped subtitle')
-
         zip_file = ZipFile(temp_file)
         for name in zip_file.namelist():
             # don't unzip stub __MACOSX folders
             if '.srt' in name and '__MACOSX' not in name:
+                logger.info(' '.join(['Unpacking zipped subtitle', name, 'to', os.path.dirname(path)]))
                 zip_file.extract(name, os.path.dirname(path))
 
         zip_file.close()
     elif is_rarfile(temp_file.name):
-        logger.debug('Saving rared subtitle')
+        logger.info(' '.join(['Saving rared subtitle as', path + '.rar']))
         out_file = open(path + '.rar', 'w')
         out_file.write(temp_file.read())
         temp_file.close()
