@@ -7,10 +7,11 @@ import os.path
 import urllib
 import urllib2
 
-from BeautifulSoup import BeautifulSoup
 from difflib import SequenceMatcher
 from tempfile import NamedTemporaryFile
 from zipfile import is_zipfile, ZipFile
+
+from BeautifulSoup import BeautifulSoup
 
 RAR_ID = bytes("Rar!\x1a\x07\x00")
 
